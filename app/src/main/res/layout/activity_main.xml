@@ -11,8 +11,8 @@
         android:id="@+id/saludo"
         android:layout_width="302dp"
         android:layout_height="64dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="280dp"
         android:text="Bienvenido a Rivendell, viajero"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,8 +21,8 @@
         android:id="@+id/boton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="117dp"
-        android:layout_marginBottom="502dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginBottom="272dp"
         android:text="Forjar la Comunidad"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -31,9 +31,20 @@
         android:id="@+id/contador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="137dp"
-        android:layout_marginBottom="446dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginBottom="216dp"
         android:text="Miembros reunidos: 0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/personaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="420dp"
+        android:text="Hacer personaje"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
