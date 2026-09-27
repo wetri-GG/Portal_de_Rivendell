@@ -11,8 +11,8 @@
         android:id="@+id/saludo"
         android:layout_width="302dp"
         android:layout_height="64dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="64dp"
         android:text="Bienvenido a Rivendell, viajero"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,8 +21,8 @@
         android:id="@+id/boton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="116dp"
-        android:layout_marginBottom="272dp"
+        android:layout_marginEnd="136dp"
+        android:layout_marginBottom="248dp"
         android:text="Forjar la Comunidad"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -31,8 +31,8 @@
         android:id="@+id/contador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginBottom="216dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginBottom="172dp"
         android:text="Miembros reunidos: 0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -41,10 +41,19 @@
         android:id="@+id/personaje"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="420dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="248dp"
         android:text="Hacer personaje"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/contenedor"
+        android:layout_width="410dp"
+        android:layout_height="889dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="1dp">
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

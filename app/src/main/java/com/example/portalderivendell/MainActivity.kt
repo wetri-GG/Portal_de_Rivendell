@@ -35,11 +35,8 @@ class MainActivity : AppCompatActivity() {
 
         // Cambiar de pantalla
         botonCambiar.setOnClickListener {
-            // Reemplaza el contenedor con tu Fragment de la segunda pantalla
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.personaje, SegundaVista())
-                .addToBackStack(null) // Esto permite que si el usuario presiona "Atrás", regrese a la pantalla limpia
-                .commit()
+            val intent = Intent(this, seguna_pantalla::class.java)
+            startActivity(intent)
         }
 
         //Ver cuando se hace click en el boton
