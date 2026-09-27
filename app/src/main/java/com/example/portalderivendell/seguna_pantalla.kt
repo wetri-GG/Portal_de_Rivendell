@@ -5,13 +5,16 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.portalderivendell.R.id.*
+import android.widget.RadioGroup
 
 class seguna_pantalla : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -42,6 +45,28 @@ class seguna_pantalla : AppCompatActivity() {
             override fun onNothingSelected(p0: AdapterView<*>?) {
             }
         }
+
+        val rgFaccion = findViewById<RadioGroup>(R.id.Grupo)
+        rgFaccion.setOnCheckedChangeListener { group, checkedId ->
+            when (checkedId){
+                R.id.Comunidad -> Toast.makeText(this, "Has elegido el camino de la Luz", Toast.LENGTH_SHORT).show()
+                R.id.Mordor -> Toast.makeText(this, "Te has aliado con la Sombra de Sauron", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        val cbSigilo = findViewById<CheckBox>(R.id.cbSigilo)
+        cbSigilo.setOnCheckedChangeListener { buttonView, isChecked ->
+            if(isChecked) {
+                Log.d("Habilidad","Has adquirido la habilidad de sigilo")
+            }
+        }
+        val cbEspada = findViewById<CheckBox>(R.id.cbEspada)
+        cbEspada.setOnCheckedChangeListener { buttonView, isChecked ->
+            if(isChecked) {
+                Log.d("Habilidad","Has adquirido la habilidad de combate con espada")
+            }
+        }
+
     }
 
 }
