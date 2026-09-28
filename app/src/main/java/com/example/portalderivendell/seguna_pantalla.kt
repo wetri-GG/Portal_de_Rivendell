@@ -15,6 +15,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.portalderivendell.R.id.*
 import android.widget.RadioGroup
+import android.widget.ImageButton
+
 
 class seguna_pantalla : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -36,8 +38,13 @@ class seguna_pantalla : AppCompatActivity() {
             }
         }
         val Raza = findViewById<Spinner>(spinner)
-        Raza.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        Raza.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
                 val RazaSelecionada = parent?.getItemAtPosition(position).toString()
                 Log.d("Personaje", "Raza selecionada: $RazaSelecionada")
             }
@@ -48,25 +55,78 @@ class seguna_pantalla : AppCompatActivity() {
 
         val rgFaccion = findViewById<RadioGroup>(R.id.Grupo)
         rgFaccion.setOnCheckedChangeListener { group, checkedId ->
-            when (checkedId){
-                R.id.Comunidad -> Toast.makeText(this, "Has elegido el camino de la Luz", Toast.LENGTH_SHORT).show()
-                R.id.Mordor -> Toast.makeText(this, "Te has aliado con la Sombra de Sauron", Toast.LENGTH_SHORT).show()
+            when (checkedId) {
+                R.id.Comunidad -> Toast.makeText(
+                    this,
+                    "Has elegido el camino de la Luz",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                R.id.Mordor -> Toast.makeText(
+                    this,
+                    "Te has aliado con la Sombra de Sauron",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 
         val cbSigilo = findViewById<CheckBox>(R.id.cbSigilo)
         cbSigilo.setOnCheckedChangeListener { buttonView, isChecked ->
-            if(isChecked) {
-                Log.d("Habilidad","Has adquirido la habilidad de sigilo")
+            if (isChecked) {
+                Log.d("Habilidad", "Has adquirido la habilidad de sigilo")
             }
         }
         val cbEspada = findViewById<CheckBox>(R.id.cbEspada)
         cbEspada.setOnCheckedChangeListener { buttonView, isChecked ->
-            if(isChecked) {
-                Log.d("Habilidad","Has adquirido la habilidad de combate con espada")
+            if (isChecked) {
+                Log.d("Habilidad", "Has adquirido la habilidad de combate con espada")
+
+//--------------------------------------------------------------------------------------------------
+                //Boton registro
+                val btnRegistrar = findViewById<ImageButton>(R.id.BotonEscudo)
+
+                // 2. Función lambda: recibe nombre, raza, facción y habilidades,
+                //    y escribe todo en Logcat (no devuelve nada, por eso Unit)
+
+                val registrarEnLogcat: (String, String, String, List<String>) -> Unit =
+                    { nombre, raza, faccion, habilidades ->
+                        Log.d(
+                            "Personaje",
+                            "Nombre: $nombre | Raza: $raza | Facción: $faccion | Habilidades: $habilidades"
+                        )
+                    }
+
+                // 3. Al pulsar leemos lo que hay elegido en el formulario
+                btnRegistrar.setOnClickListener {
+                    val nombre = NombreHeroe.text.toString()
+                    val raza = Raza.selectedItem.toString()
+
+                    val faccion = when (rgFaccion.checkedRadioButtonId) {
+                        R.id.Comunidad -> "Comunidad del Anillo"
+                        R.id.Mordor -> "Huestes de Mordor"
+                        else -> "Sin elegir"
+                    }
+
+                    val habilidades = mutableListOf<String>()
+                    if (cbSigilo.isChecked) habilidades.add("Sigilo")
+                    if (cbEspada.isChecked) habilidades.add("Combate con Espada")
+
+                    // 3b. Texto explicacion cosas
+                    val resumen = "Héroe: $nombre\nRaza: $raza\nFacción: $faccion\n" +
+                            "Habilidades: ${
+                                if (habilidades.isEmpty()) "Ninguna" else habilidades.joinToString(
+                                    ", "
+                                )
+                            }"
+
+                    // 3c. Lo enseñamos en toast como pide el profe
+                    Toast.makeText(this, resumen, Toast.LENGTH_LONG).show()
+
+                    // 3d. Lo registramos en Logcat llamando a la lambda (lo ve el programador)
+                    registrarEnLogcat(nombre, raza, faccion, habilidades)
+                }
             }
+
         }
-
     }
-
 }

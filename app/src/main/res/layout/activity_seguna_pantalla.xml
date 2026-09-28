@@ -41,15 +41,15 @@
             android:layout_width="283dp"
             android:layout_height="59dp"
             android:text="Huestes de Mordor" />
-            
+
     </RadioGroup>
 
     <CheckBox
         android:id="@+id/cbEspada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="616dp"
-        android:layout_marginEnd="52dp"
+        android:layout_marginTop="596dp"
+        android:layout_marginEnd="44dp"
         android:text="Combate con Espada"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -58,8 +58,8 @@
         android:id="@+id/cbSigilo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="616dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="596dp"
         android:text="Sigilo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -68,8 +68,8 @@
         android:id="@+id/txtHabilidad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="596dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="564dp"
         android:text="Habilidad:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -79,10 +79,12 @@
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginBottom="524dp"
+        android:layout_marginTop="183dp"
+        android:layout_marginBottom="451dp"
         android:entries="@array/razas_tierra_media"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/BotonEscudo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtfaccion"
@@ -94,5 +96,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    
+    <ImageButton
+        android:id="@+id/BotonEscudo"
+        android:layout_width="115dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="5dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:srcCompat="@drawable/_1200_900" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
