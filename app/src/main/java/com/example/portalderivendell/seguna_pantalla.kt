@@ -29,7 +29,9 @@ class seguna_pantalla : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        //variable del nombre
         val NombreHeroe = findViewById<EditText>(name)
+        //ponemos focus para que sea lo primero que hagas
         NombreHeroe.requestFocus()
         NombreHeroe.setOnFocusChangeListener { view, hasFocus ->
             if (!hasFocus) {
@@ -37,7 +39,9 @@ class seguna_pantalla : AppCompatActivity() {
                 if (NombreHeroe.text.isEmpty()) NombreHeroe.error = "¡Tu héroe necesita un nombre!"
             }
         }
+        //variable de raza
         val Raza = findViewById<Spinner>(spinner)
+        //Que escuche que raza eliges y que te muestre en el log cual eliges
         Raza.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -52,8 +56,9 @@ class seguna_pantalla : AppCompatActivity() {
             override fun onNothingSelected(p0: AdapterView<*>?) {
             }
         }
-
+        //variable de cual es la faccion que escoges
         val rgFaccion = findViewById<RadioGroup>(R.id.Grupo)
+        //Toast para mostrar texto en pantalla al selecionar una faccion
         rgFaccion.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.Comunidad -> Toast.makeText(
@@ -69,7 +74,7 @@ class seguna_pantalla : AppCompatActivity() {
                 ).show()
             }
         }
-
+        //los dos valores de sigilo y espada y su log correspondiente
         val cbSigilo = findViewById<CheckBox>(R.id.cbSigilo)
         cbSigilo.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
