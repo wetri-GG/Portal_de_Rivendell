@@ -1,5 +1,6 @@
 package com.example.portalderivendell
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
@@ -8,6 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.widget.Button
 import android.widget.TextView
+import kotlin.jvm.java
 
 
 class MainActivity : AppCompatActivity() {
@@ -29,6 +31,13 @@ class MainActivity : AppCompatActivity() {
         val tvSaludo = findViewById<TextView>(R.id.saludo)
         val btnForjar = findViewById<Button>(R.id.boton)
         val tvContador = findViewById<TextView>(R.id.contador)
+        val botonCambiar = findViewById<Button>(R.id.personaje)
+
+        // Cambiar de pantalla
+        botonCambiar.setOnClickListener {
+            val intent = Intent(this, seguna_pantalla::class.java)
+            startActivity(intent)
+        }
 
         //Ver cuando se hace click en el boton
         btnForjar.setOnClickListener {
